@@ -7,12 +7,6 @@ export default function Task({ task: { id, title, state }, onArchiveTask, onPinT
   return (
     <div className={`list-item ${state}`}>
       <label className="checkbox">
-        <input
-          type="checkbox"
-          defaultChecked={state === 'TASK_ARCHIVED'}
-          disabled={true}
-          name="checked"
-        />
         <span className="checkbox-custom" onClick={() => onArchiveTask(id)} />
       </label>
       <div className="title">
@@ -33,6 +27,7 @@ export default function Task({ task: { id, title, state }, onArchiveTask, onPinT
 
 // データ要件を明示する
 // taskがどんな存在化をタイプ化しておく　TS使えない時とかに使う
+// isRequiredが着いたら必須　TSだと？がつく
 Task.propTypes = {
     /** Composition of the task */
     task: PropTypes.shape({
